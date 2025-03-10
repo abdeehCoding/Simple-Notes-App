@@ -23,9 +23,11 @@ deleteAllNotesBtn.onclick = () => {
 }
 
 notesList.addEventListener('click', (e) => {
-    e.target.closest('.delete-note-btn') ? e.target.closest('li').remove() : null;
-    updateDB();
-})
+    if (e.target.closest('.delete-note-btn')) {
+        e.target.closest('li').remove()
+        updateDB();
+    }
+});
 
 
 // functions

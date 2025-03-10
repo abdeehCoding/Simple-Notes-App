@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes app</title>
+</head>
+
+<body>
+    <h1>Notes app</h1>
+
+    <div class="container">
+        <form action="GET" id="new-note-form">
+            <label for="note-input">
+                New note <br>
+                <input type="text" name="note-input" id="note-input" autocomplete="off"></input>
+            </label> <br>
+            <button type="submit" id="new-note-btn">Create new note</button>
+        </form>
+
+        <h2>Your notes</h2>
+        <ul class="notes-list"></ul>
+        <button id="delete-notes-btn">Delete all notes</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

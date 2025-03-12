@@ -9,24 +9,28 @@ let notesDB = JSON.parse(localStorage.getItem('notesDB')) || [];
 
 // DOM
 renderAllNotes();
-
+    // creates new note
 form.onsubmit = (e) => {
     e.preventDefault();
 
     noteInput.value.trim() === '' ? null : createNewNote();
     noteInput.value = '';
 }
-
+    // deletes all notes
 deleteAllNotesBtn.onclick = () => {
     notesList.innerHTML = '';
     updateDB();
 }
-
+    // removes the targeted note
 notesList.addEventListener('click', (e) => {
     if (e.target.closest('.delete-note-btn')) {
         e.target.closest('li').remove()
         updateDB();
     }
+});
+    // updates modified notes
+notesList.addEventListener('input', (e) => {
+    e.target.matches('.note-paragraph') ? updateDB() : null;
 });
 
 
@@ -45,7 +49,7 @@ function renderNote(noteText = '[empty param value]') {
     const deleteNoteIcon = document.createElement('img');
 
     deleteNoteIcon.src = 'img/trash.svg';
-    
+
     deleteNoteBtn.classList.add('delete-note-btn');
     deleteNoteBtn.appendChild(deleteNoteIcon);
 
